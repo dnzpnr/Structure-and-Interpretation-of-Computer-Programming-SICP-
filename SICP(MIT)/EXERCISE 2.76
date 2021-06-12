@@ -1,0 +1,5 @@
+generic islemler icin explicit dispatch ile yeni işlemler eklemek kolaydır (yani mevcut kodu değiştirmeden yapılabilir).
+
+message passing için, varolan kodu değiştirmeden yeni türler ekleme yapılabilir, ancak yeni işlemler eklemek tüm eski kodun değiştirilmesini gerektirir.
+
+Data directed programming aslında mevcut kodu değiştirmeden yeni türler ve yeni işlemlerin eklenmesine izin vererek İfade problemini çözer.

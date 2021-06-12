@@ -1,0 +1,225 @@
+;;CHAPTER 1
+
+----(abs x)
+----cond, if, and, or , not 	    %%
+---- (exp (double (log x))
+----(inc (+ (dec a) b))		    
+---- (remainder n 2)
+----currying
+----lambda			     %%
+----(positive? 3)
+----(negative? 2)
+----prefix notation		     %%
+----syntactic sugar		     %%
+----recursive / iterative             %%
+----let				     %%
+----define			     %%
+----order of growth		     %%
+----applicative order / normal order  %%
+
+
+;;QUIZ SORU 1
+What are the three mechanisms of any powerful language?
+
+
+
+;;QUIZ SORU 2
+In Lisp-Scheme language , the convention of placing the operator to the left of the operands is known as .....
+Fill in the blanks.
+
+
+
+;;QUIZ SORU 3
+
+((lambda (a + b) (+ b a)) 2 - 4)  
+what is the result of this function?
+
+
+;;QUIZ SORU 4
+What is the interpreter's evaluation procedure(hint: 2 steps)?
+
+
+ 
+;;QUIZ SORU 5
+ (sqrt 4) = 2 
+ 'sqrt' allows us to get square root of a number. What is the form of the 'sqrt' ?
+ 
+
+ 
+;;QUIZ SORU 6
+f(x) = x + 2  if x<3,
+f(x) = f(x+1) + 5 if x=>3,
+write recursive and iterative f(x) function about this problem.
+
+
+;;QUIZ SORU 7
+(define (f x y)
+  (let ((exp-2 *))
+    (exp-2 x y)))
+    
+What is the result of expressions below?
+(f 2 3)
+(exp-2 2 3)
+
+
+;;QUIZ SORU 8
+Write a program to find biggest divisor of a number with order of growth (n^(1/2)). Name of that function is 'biggest-divisor'. Firstly define 'square' function.(for example--> (square 4) = 16) After that define the 'biggest-divisor' function as 'find-divisor'. Also define 'divides?' function to show whether a number is divided by another number.(for example--> (divides? 3 6)= true). Use divides? function inside the find-divisor funtion. If you use these 3 functions, you can get the desired biggest-divisor function.
+hint: 
+(define (biggest-divisor n)
+  (find-divisor n 2))
+  
+For example--> (biggest-divisor 20)  = 10
+	       (biggest-divisor 199) = 199
+	       (biggest-divisor 19999)= 2857
+
+
+;;QUIZ SORU 9
+
+(define (square x) (* x x))
+
+(define (exp-6 x) (* (square x) (square x) (square x)))
+
+Find out how many steps taking place in background by the interpreter when we run the above example? Also if the interpreter using normal order evaluation, count the number of steps  again.
+
+
+
+
+
+
+
+
+
+http://www.cs.toronto.edu/~sheila/324/f05/
+
+http://www2.lawrence.edu/fast/GREGGJ/CMSC100/Final/Final.html
+
+https://inst.eecs.berkeley.edu/~cs61a/fa13/exams/final.html
+
+
+
+
+
+
+PROBLEM;
+(require trace)
+(define (square x) (* x x))
+
+(define (smallest-divisor n)
+  (find-divisor n 2))
+
+(define (find-divisor n test-divisor)
+  (cond ((> (square test-divisor) n)
+         n)
+        ((divides? test-divisor n)
+         (/ n test-divisor))
+        (else (find-divisor
+               n
+               (+ test-divisor 1)))))
+
+(define (divides? a b)
+  (= (remainder b a) 0))
+
+
+
+;;QUIZ SORU 1
+Fill in the blanks.
+ Every powerfull programming language has three mechanism. These are .... , .... , ... In Lisp language , the convention of placing the operator to the left of the operands is known as .....  Scheme use .... order evaluation. This is an evaluation strategy in which an expression is evaluated by repeatedly evaluating its leftmost innermost reducible expression. This means that a function's arguments are evaluated before the function is applied. So the scheme interpreter's evaluation procedure consists of two steps; 1-)..., 2-)....
+ 
+;;QUIZ SORU 2
+
+((lambda (a + b) (+ b a)) 2 - 4)  what is the result of this function?
+
+
+;;QUIZ SORU 3
+ (sqrt 4) = 2 
+ 'sqrt' allows us to get square root of a number. What is the form of the 'sqrt' ?
+ 
+ ;;QUIZ SORU 6
+f(x) = x + 2  if x<3,
+f(x) = f(x+1) + 5 if x=>3,
+write recursive and iterative f(x) function about that problem.
+
+;;QUIZ SORU 7
+(define (f x y)
+  (let ((exp-2 *))
+    (exp-2 x y)))
+    
+What is the result of expressions below?
+(f 2 3)
+(exp-2 2 3)
+
+
+;;QUIZ SORU 9
+
+(define (square x) (* x x))
+
+(define (exp-6 x) (* (square x) (square x) (square x)))
+
+Find out how many steps does the interpreter when we run the above example? Also if the interpreter using normal order evaluation, compute the number of steps again.
+
+
+;;QUIZ SORU 1
+What are the three mechanisms of any powerful language?
+
+----primitive expressions
+----means of combination
+----means of abstraction
+
+
+;;QUIZ SORU 2
+
+In Lisp language , the convention of placing the operator to the left of the operands is known as .....
+Fill in the blanks.
+
+----prefix notation
+
+;;QUIZ SORU 3
+
+((lambda (a + b) (+ b a)) 2 - 4)  what is the result of this function?
+
+---2
+
+;;QUIZ SORU 4
+What is the interpreter's evaluation procedure?
+
+1-Evaluate the subexpressions of the combination.
+
+2-Apply the procedure that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the
+other subexpressions (the operands).
+ 
+ ;;QUIZ SORU 5
+ (sqrt 4) = 2 
+ 'sqrt' allows us to get square root of a number. What is the form of the 'sqrt' ?
+ 
+ ---syntactic sugar
+ 
+;;QUIZ SORU 6
+f(x) = x + 2  if x<3,
+f(x) = f(x+1) + 5 if x=>3,
+write recursive and iterative f(x) function about that problem.
+
+;;QUIZ SORU 7
+(define (f x y)
+  (let ((exp-2 *))
+    (exp-2 x y)))
+    
+What is the result of expressions below?
+(f 2 3)
+(exp-2 2 3)
+
+
+----6
+----error undefined
+
+
+;;QUIZ SORU 8
+Write a program to find biggest-divisor of a number with O(n^(1/2)).
+
+;;QUIZ SORU 9
+
+(define (square x) (* x x))
+
+(define (exp-6 x) (* (square x) (square x) (square x)))
+
+Find out how many steps does the interpreter when we run the above example? Also if the interpreter using normal order evaluation, compute the number of steps again.
+

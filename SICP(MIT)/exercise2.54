@@ -1,0 +1,9 @@
+(define a (list 1 2 3))
+(define b (list 1 7 3))
+
+(define (equall? a b)
+  (cond ((and (empty? a) (empty? b)) #t)
+        ((empty? a) #f)
+        ((empty? b) #f)
+        ((eq? (car a) (car b)) (equall? (cdr a) (cdr b)))
+        (else #f)))

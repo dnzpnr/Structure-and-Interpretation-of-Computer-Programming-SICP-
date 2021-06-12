@@ -1,0 +1,7 @@
+EXERCISE 2.17
+
+
+(define (last-pair a)
+(if (null? (cdr a))
+(car a)
+(last-pair (cdr a))))

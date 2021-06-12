@@ -1,0 +1,5 @@
+ 
+(define (make-rat n d)
+(cond ((> (/ n d) 0) (make-rat (abs n) (abs d)))
+((< (/ n d) 0) (make-rat (* -1 (abs n)) (abs d))))
+(else 0))

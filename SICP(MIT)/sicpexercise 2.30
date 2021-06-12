@@ -1,0 +1,10 @@
+(define (square x) (* x x))
+
+(define (square-tree x)
+  (if (pair? (car x))
+      (list (map square (car (car (car x)))
+             (square-tree (cdr (car x)))
+             (square-tree (cdr x)))
+      (list (map square (car x))
+            (square-tree (cdr x)))))
+(square-tree (list 1 (list 2 (list 3 4) 5) (list 6 7)))

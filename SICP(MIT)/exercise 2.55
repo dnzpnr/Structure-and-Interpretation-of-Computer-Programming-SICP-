@@ -1,0 +1,1 @@
+(car ''abracadabra)   yazildiginda interpreter ilk quote tan sonra gelen ifadeleri alir ve car yazisi sebebiyle kalan ifadenin ilk kismini yazdirir yani ' quote.

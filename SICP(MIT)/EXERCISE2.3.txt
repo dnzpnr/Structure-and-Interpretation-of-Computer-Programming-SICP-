@@ -1,0 +1,9 @@
+(define (horizontal-length-of-rect) 
+(horizontal-length-of-rect p1 p4))
+(define (horizontal-length-of-rect p1 p4)
+(sqrt (+ (square (- (x-point p1) (x-point p4)))
+(square (- (y-point p1) (y-point p4))))))
+
+(define (vertical-length-of-rect)
+yukaridakinin aynisini devam ettir...
+

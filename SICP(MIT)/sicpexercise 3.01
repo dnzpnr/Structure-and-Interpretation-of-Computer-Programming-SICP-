@@ -1,0 +1,9 @@
+
+(define (make-accumulator x)
+  (lambda (sonuc) (set! x (+ sonuc x)) x))
+(define A (make-accumulator 5))
+
+
+(A 10)
+(A 5)
+(A 6)

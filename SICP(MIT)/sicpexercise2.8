@@ -1,0 +1,10 @@
+
+(define (width x y)
+(if (add-interval x y)
+(/ (- (+ (upper-bound x) (upper-bound y))
+(+ (lower-bound x) (lower-bound y))) 2)
+(sub-width x y)))
+
+(define (sub-width x y)
+(/ (- (- (upper-bound x) (lower-bound y))
+(- (lower-bound x) (upper-bound y))) 2))
